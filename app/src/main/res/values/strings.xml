@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Androidtest0902</string>
+    <string name="text">Hello,world</string>
+    <string name="text2">こんにちは</string>
 </resources>
