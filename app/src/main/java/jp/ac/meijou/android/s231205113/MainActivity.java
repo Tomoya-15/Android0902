@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        var andorid = ContextCompat.getDrawable(this, R.drawable.baseline_android_24);
-        binding.imageView.setImageDrawable(andorid);
-    }
+        var train = ContextCompat.getDrawable(this, R.drawable.baseline_android_24);
+        binding.imageView.setImageDrawable(train);
+}
 }
