@@ -1,5 +1,6 @@
 package jp.ac.meijou.android.s231205113;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -63,13 +64,30 @@ public class MainActivity extends AppCompatActivity {
         binding.deleteButton.setOnClickListener(view -> {
             prefDataStore.setString("name", "");
         });
+
+        // Okボタン
+        binding.buttonOk.setOnClickListener(view -> {
+            var intent = new Intent();
+            intent.putExtra("ret", "Ok");
+            setResult(RESULT_OK, intent);
+            finish();
+        });
+
+        // Cancelボタン
+        binding.buttonCancel.setOnClickListener(view -> {
+            setResult(RESULT_CANCELED);
+            finish();
+        });
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        prefDataStore.getString("name")
-                .ifPresent(name -> binding.text.setText(name)); // .ifPresent()は「getString("name")の結果がnullでないときに，引数の処理を実行する」というOptionalのメソッド
+        String text = getIntent().getStringExtra("text");
+        binding.text.setText(text);
+//        prefDataStore.getString("name")
+//                .ifPresent(name -> binding.text.setText(name)); // .ifPresent()は「getString("name")の結果がnullでないときに，引数の処理を実行する」というOptionalのメソッド
     }
 
     @Override
